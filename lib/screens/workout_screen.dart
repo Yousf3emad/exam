@@ -24,7 +24,7 @@ class _WorkOutScreenState extends State<WorkOutScreen>
   int currentIndex = 0;
   void initState() {
     super.initState();
-    tabController = TabController(length: 6, vsync: this);
+    tabController = TabController(length: 4, vsync: this);
     tabController.animateTo(2);
   }
 
