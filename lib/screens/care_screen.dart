@@ -74,51 +74,9 @@ class _CareScreenState extends State<CareScreen> {
                 height: 180,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: const Color(0xffF8F9FC),
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.all(18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 70,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Colors.white,
-                                ),
-                                child: Text("${listWorkoutModel[index].daysNum} days",textAlign: TextAlign.center,),
-                              ),
-                              const SizedBox(
-                                height: 20.0,
-                              ),
-                              titleWidget(txt: listWorkoutModel[index].title),
-                              titleWidget(txt: listWorkoutModel[index].subTitle,fontSize: 16,fontWeight: FontWeight.w400),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(vertical: 6),
-                                child: Row(
-                                  children: [
-                                    Icon(IconlyLight.time_circle),
-                                    SizedBox(width: 6,),
-                                    Text("30 mins"),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Image.asset(listWorkoutModel[index].img,height: 150,width: 150,),
-                      ],
-                    ),
-                  ),
+                  itemBuilder: (context, index) => AssetsManager.careBanners[index],
                   separatorBuilder: (context, index) => const SizedBox(width: 20,),
-                  itemCount: listWorkoutModel.length,
+                  itemCount: AssetsManager.careBanners.length,
                 ),
               ),
             ),

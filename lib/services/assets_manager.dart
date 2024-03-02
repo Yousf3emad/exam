@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
+
+import 'package:flutter/material.dart';
 
 class AssetsManager{
   static String cool = "assets/images/cool.png";
@@ -7,11 +9,18 @@ class AssetsManager{
   static String sad = "assets/images/sad.png";
 
   static String banner1 = "assets/images/banners/banner1.png";
+  static String care_baner_1 = "assets/images/banners/care_banner_1.png";
+  static String care_baner_2 = "assets/images/banners/care_banner_2.png";
 
   static List<Widget> banners = [
     Image.asset(banner1),
     Image.asset(banner1),
     Image.asset(banner1),
+  ];
+
+  static List<Widget> careBanners = [
+    Image.asset(care_baner_1),
+    Image.asset(care_baner_2),
   ];
 
   static String relaxing = "assets/images/relaxing.png";
