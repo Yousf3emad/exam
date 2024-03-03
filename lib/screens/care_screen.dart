@@ -1,5 +1,4 @@
 import 'package:exam/widgets/title_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -7,7 +6,7 @@ import '../models/workout_model.dart';
 import '../services/assets_manager.dart';
 
 class CareScreen extends StatefulWidget {
-  CareScreen({super.key});
+  const CareScreen({super.key});
 
   static String routeName = "CareScreen";
   @override
@@ -109,13 +108,13 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
 
                 tabs: [
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 8),
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: selectedTab == 0
-                          ? Color(0xffF4EBFF)
-                          : Color(0xffE4E7EC),
+                          ? const Color(0xffF4EBFF)
+                          : const Color(0xffE4E7EC),
                     ),
                     child: titleWidget(
                         txt: "Discover",
@@ -123,25 +122,25 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w500),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 8),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: selectedTab == 1
-                          ? Color(0xffF4EBFF)
-                          : Color(0xffE4E7EC),
+                          ? const Color(0xffF4EBFF)
+                          : const Color(0xffE4E7EC),
                     ),
                     child: titleWidget(
                         txt: "News", fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 8),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: selectedTab == 2
-                          ? Color(0xffF4EBFF)
-                          : Color(0xffE4E7EC),
+                          ? const Color(0xffF4EBFF)
+                          : const Color(0xffE4E7EC),
                     ),
                     child: titleWidget(
                         txt: "Most Viewed",
@@ -149,13 +148,13 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w500),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 8),
-                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: selectedTab == 3
-                          ? Color(0xffF4EBFF)
-                          : Color(0xffE4E7EC),
+                          ? const Color(0xffF4EBFF)
+                          : const Color(0xffE4E7EC),
                     ),
                     child: titleWidget(
                         txt: "Saved",
@@ -209,7 +208,7 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               titleWidget(txt: "Get Tips"),
@@ -251,13 +250,13 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
                                         fontSize: 14,
                                         overflow: TextOverflow.ellipsis),
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 height: 12.0,
                               ),
                               ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all(
-                                      Color(0xff7F56D9)),
+                                      const Color(0xff7F56D9)),
                                 ),
                                 onPressed: () {},
                                 child: titleWidget(
@@ -317,18 +316,18 @@ class _CareScreenState extends State<CareScreen> with TickerProviderStateMixin {
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.grey,
         selectedItemColor: const Color(0xff7F56D9),
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+           BottomNavigationBarItem(
               icon: Icon(
                 Icons.calendar_today,
               ),
               label: "Today"),
-          const BottomNavigationBarItem(
+           BottomNavigationBarItem(
               icon: Icon(
                 Icons.grid_view_outlined,
               ),
               label: "Insights"),
-          const BottomNavigationBarItem(
+           BottomNavigationBarItem(
               icon: Icon(
                 Icons.chat_bubble_outline,
               ),

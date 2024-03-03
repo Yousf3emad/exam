@@ -4,9 +4,7 @@ import 'package:exam/services/assets_manager.dart';
 import 'package:exam/widgets/feeling_widget.dart';
 import 'package:exam/widgets/title_widget.dart';
 import 'package:exam/widgets/welcome_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../models/exercise_grid_element_model.dart';
 import '../models/models.dart';
 

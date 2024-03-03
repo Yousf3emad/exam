@@ -9,8 +9,8 @@ class AssetsManager{
   static String sad = "assets/images/sad.png";
 
   static String banner1 = "assets/images/banners/banner1.png";
-  static String care_baner_1 = "assets/images/banners/care_banner_1.png";
-  static String care_baner_2 = "assets/images/banners/care_banner_2.png";
+  static String careBanner_1 = "assets/images/banners/care_banner_1.png";
+  static String careBanner_2 = "assets/images/banners/care_banner_2.png";
 
   static List<Widget> banners = [
     Image.asset(banner1,),
@@ -24,8 +24,8 @@ class AssetsManager{
    ];
 
   static List<Widget> careBanners = [
-    Image.asset(care_baner_1),
-    Image.asset(care_baner_2),
+    Image.asset(careBanner_1),
+    Image.asset(careBanner_2),
   ];
 
   static String relaxing = "assets/images/relaxing.png";

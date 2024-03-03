@@ -1,5 +1,5 @@
 import 'package:exam/screens/care_screen.dart';
-import 'package:exam/screens/home_Screen.dart';
+import 'package:exam/screens/home_screen.dart';
 import 'package:exam/screens/workout_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
-        WorkOutScreen.routeName : (context) => WorkOutScreen(),
-        HomeScreen.routeName : (context) =>  HomeScreen(),
-        CareScreen.routeName : (context) =>  CareScreen(),
+        WorkOutScreen.routeName : (context) => const WorkOutScreen(),
+        HomeScreen.routeName : (context) =>  const HomeScreen(),
+        CareScreen.routeName : (context) =>  const CareScreen(),
       },
     );
   }
