@@ -4,7 +4,9 @@ import 'package:exam/services/assets_manager.dart';
 import 'package:exam/widgets/feeling_widget.dart';
 import 'package:exam/widgets/title_widget.dart';
 import 'package:exam/widgets/welcome_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../models/exercise_grid_element_model.dart';
 import '../models/models.dart';
 
@@ -34,7 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: const Badge(child: Icon(Icons.notifications_none_outlined))),
+              icon:
+                  const Badge(child: Icon(Icons.notifications_none_outlined))),
         ],
       ),
       body: Padding(
@@ -52,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 18.0,
               ),
               SizedBox(
-                height: 150,
+                height: size.height * 0.12,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => Column(
@@ -68,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 12,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,10 +158,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: GridView.builder(
                   padding: const EdgeInsets.all(6),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisExtent: 60,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
+                    crossAxisCount: 2,
+                    mainAxisExtent: 60,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12,
                   ),
                   itemBuilder: (context, index) => Container(
                     padding: const EdgeInsets.all(12),
