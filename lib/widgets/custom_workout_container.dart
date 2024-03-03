@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 Widget customWorkoutContainer({
+  required BuildContext context,
   bool isImage = false,
   required String titleTxt,
   required String subTitleTxt,
   IconData? icon,
    String? img,
 
-}) => SizedBox(
-  width: 100,
+}) {
+  Size size = MediaQuery.of(context).size;
+  return SizedBox(
+  width: size.width*0.25,
   height: 70,
   child: Column(
     mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +25,8 @@ Widget customWorkoutContainer({
         ],
       ),
       const SizedBox(height: 6,),
-      Text(subTitleTxt),
+      Text(subTitleTxt,textAlign: TextAlign.center,),
     ],
   ),
 );
+}

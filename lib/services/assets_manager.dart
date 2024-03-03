@@ -13,10 +13,15 @@ class AssetsManager{
   static String care_baner_2 = "assets/images/banners/care_banner_2.png";
 
   static List<Widget> banners = [
-    Image.asset(banner1),
-    Image.asset(banner1),
-    Image.asset(banner1),
+    Image.asset(banner1,),
+    Image.asset(banner1,),
+    Image.asset(banner1,),
   ];
+  static List<String> bannersS = [
+  banner1,
+  banner1,
+  banner1,
+   ];
 
   static List<Widget> careBanners = [
     Image.asset(care_baner_1),
@@ -33,5 +38,8 @@ class AssetsManager{
 
   static String morningYoga = "assets/images/morning_yoga.png";
   static String plankExercise = "assets/images/plank_exercise.png";
+
+  static String doctor = "assets/images/doctor.png";
+  static String iconCare = "assets/images/iconCare.png";
 
 }

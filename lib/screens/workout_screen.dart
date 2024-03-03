@@ -2,7 +2,6 @@ import 'package:exam/models/workout_model.dart';
 import 'package:exam/services/assets_manager.dart';
 import 'package:exam/widgets/custom_tab.dart';
 import 'package:exam/widgets/title_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -10,7 +9,7 @@ import '../widgets/custom_workout_container.dart';
 import 'care_screen.dart';
 
 class WorkOutScreen extends StatefulWidget {
-  WorkOutScreen({super.key});
+  const WorkOutScreen({super.key});
 
   static String routeName = "WorkOutScreen";
   @override
@@ -19,21 +18,19 @@ class WorkOutScreen extends StatefulWidget {
 
 class _WorkOutScreenState extends State<WorkOutScreen>
     with TickerProviderStateMixin {
-
   late TabController tabController;
   int currentIndex = 0;
+
+  @override
   void initState() {
     super.initState();
     tabController = TabController(length: 4, vsync: this);
     tabController.animateTo(2);
   }
 
-  List<WorkoutModel> listWorkoutModel = [
-    WorkoutModel(daysNum: 7, title: "Morning Yoga", subTitle: "Improve mental focus.", img: AssetsManager.morningYoga),
-    WorkoutModel(daysNum: 7, title: "Morning Yoga", subTitle: "Improve mental focus.", img: AssetsManager.plankExercise),
-  ];
-
+  @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
@@ -79,16 +76,19 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                 height: 30.0,
               ),
               Container(
+                width: size.width,
                 padding: const EdgeInsets.all(10),
                 color: const Color(0xffF8F9FC),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
                       child: customWorkoutContainer(
+                          context: context,
                           icon: IconlyLight.heart,
                           titleTxt: "Heart Rate",
                           subTitleTxt: "81BPM"),
-                      onTap: (){
+                      onTap: () {
                         Navigator.pushNamed(context, CareScreen.routeName);
                       },
                     ),
@@ -100,6 +100,7 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                       ),
                     ),
                     customWorkoutContainer(
+                        context: context,
                         icon: Icons.list,
                         titleTxt: "To-do",
                         subTitleTxt: "32.5%"),
@@ -111,6 +112,7 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                       ),
                     ),
                     customWorkoutContainer(
+                        context: context,
                         isImage: true,
                         img: AssetsManager.calories,
                         titleTxt: "Calo",
@@ -129,15 +131,15 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                   FittedBox(child: customTab(txt: "Full Body")),
                   FittedBox(child: customTab(txt: "Upper")),
                   FittedBox(child: customTab(txt: "Lower")),
-
                 ],
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: ListView.separated(
-                      itemBuilder: (context, index) => Container(
-                        height: 174,
+                    itemBuilder: (context, index) => FittedBox(
+                      child: Container(
+                        height: size.width * 0.45,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: const Color(0xffF8F9FC),
@@ -156,19 +158,33 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                                       borderRadius: BorderRadius.circular(12),
                                       color: Colors.white,
                                     ),
-                                    child: Text("${listWorkoutModel[index].daysNum} days",textAlign: TextAlign.center,),
+                                    child: Text(
+                                      "${listWorkoutModel[index].daysNum} days",
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 20.0,
                                   ),
-                                  titleWidget(txt: listWorkoutModel[index].title),
-                                  titleWidget(txt: listWorkoutModel[index].subTitle,fontSize: 16,fontWeight: FontWeight.w400),
+                                  titleWidget(
+                                      txt: listWorkoutModel[index].title),
+                                  SizedBox(
+                                    width: 170,
+                                    child: FittedBox(
+                                        child: titleWidget(
+                                            txt: listWorkoutModel[index]
+                                                .subTitle,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400)),
+                                  ),
                                   const Padding(
                                     padding: EdgeInsets.symmetric(vertical: 6),
                                     child: Row(
                                       children: [
                                         Icon(IconlyLight.time_circle),
-                                        SizedBox(width: 6,),
+                                        SizedBox(
+                                          width: 6,
+                                        ),
                                         Text("30 mins"),
                                       ],
                                     ),
@@ -176,12 +192,19 @@ class _WorkOutScreenState extends State<WorkOutScreen>
                                 ],
                               ),
                             ),
-                            Image.asset(listWorkoutModel[index].img,height: 150,width: 150,),
+                            Image.asset(
+                              listWorkoutModel[index].img,
+                              height: size.width * .4,
+                              width: size.width * 0.4,
+                            ),
                           ],
                         ),
                       ),
-                      separatorBuilder: (context, index) => const SizedBox(height: 20,),
-                      itemCount: listWorkoutModel.length,
+                    ),
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 20,
+                    ),
+                    itemCount: listWorkoutModel.length,
                   ),
                 ),
               ),
@@ -190,7 +213,7 @@ class _WorkOutScreenState extends State<WorkOutScreen>
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
-          onTap: (index){
+          onTap: (index) {
             setState(() {
               currentIndex = index;
             });
@@ -200,14 +223,45 @@ class _WorkOutScreenState extends State<WorkOutScreen>
           selectedItemColor: const Color(0xff0b5e11),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          items: [
-            const BottomNavigationBarItem(icon: Icon(Icons.home_filled,),label: ""),
-            const BottomNavigationBarItem(icon: Icon(Icons.navigation,),label: ""),
-            const BottomNavigationBarItem(icon: Icon(Icons.bar_chart,),label: ""),
-            const BottomNavigationBarItem(icon: Icon(IconlyLight.profile,),label: ""),
-          ],
+          items: bottomNavBarItems,
         ),
       ),
     );
   }
+
+  List<BottomNavigationBarItem> bottomNavBarItems = const [
+    BottomNavigationBarItem(
+        icon: Icon(
+          Icons.home_filled,
+        ),
+        label: ""),
+    BottomNavigationBarItem(
+        icon: Icon(
+          Icons.navigation,
+        ),
+        label: ""),
+    BottomNavigationBarItem(
+        icon: Icon(
+          Icons.bar_chart,
+        ),
+        label: ""),
+    BottomNavigationBarItem(
+        icon: Icon(
+          IconlyLight.profile,
+        ),
+        label: ""),
+  ];
+
+  List<WorkoutModel> listWorkoutModel = [
+    WorkoutModel(
+        daysNum: 7,
+        title: "Morning Yoga",
+        subTitle: "Improve mental focus.",
+        img: AssetsManager.morningYoga),
+    WorkoutModel(
+        daysNum: 3,
+        title: "Plank Exercise",
+        subTitle: "Improve posture and stability.",
+        img: AssetsManager.plankExercise),
+  ];
 }
